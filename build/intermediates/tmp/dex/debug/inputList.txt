@@ -1,0 +1,5 @@
+/Users/liyang/work/GitHub/recyclerviewdemo/build/intermediates/classes/debug
+/Users/liyang/work/GitHub/recyclerviewdemo/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-43cec5433cf22e84dc8a12e76f0d9efebff980f6.jar
+/Users/liyang/work/GitHub/recyclerviewdemo/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-c16733d3697c7a91e25ae35919257ec1f693e1f3.jar
+/Users/liyang/work/GitHub/recyclerviewdemo/build/intermediates/pre-dexed/debug/classes-d4cd66add6a4cd00f4f523c50803a6a09274ecf3.jar
+/Users/liyang/work/GitHub/recyclerviewdemo/build/intermediates/pre-dexed/debug/classes-c9969bc37a0badf6fee2649cdcc9300b1ca25e12.jar
