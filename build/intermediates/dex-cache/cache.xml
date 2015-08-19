@@ -9,6 +9,13 @@
         <dex dex="/Users/liyang/work/GitHub/recyclerviewdemo/build/intermediates/pre-dexed/debug/classes-d4cd66add6a4cd00f4f523c50803a6a09274ecf3.jar" />
     </item>
     <item
+        jar="/Users/liyang/work/GitHub/recyclerviewdemo/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/22.2.0/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="5b37cf49773f7f17aca9830efd3053b0cac56728">
+        <dex dex="/Users/liyang/work/GitHub/recyclerviewdemo/build/intermediates/pre-dexed/debug/classes-f5df7d254b0d81cfa817c9e10454069d205a045c.jar" />
+    </item>
+    <item
         jar="/Users/liyang/work/GitHub/recyclerviewdemo/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/libs/internal_impl-22.2.0.jar"
         jumboMode="false"
         revision="22.0.1"
