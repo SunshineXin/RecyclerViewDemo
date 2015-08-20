@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -36,12 +37,19 @@ public class MainActivity extends AppCompatActivity implements SwipeRefreshLayou
         mRecyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         // 创建一个线性布局管理器
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+//        layoutManager.setOrientation(LinearLayout.HORIZONTAL);//将item设置为横向
         // 设置布局管理器
         mRecyclerView.setLayoutManager(layoutManager);
         mAdapter.setOnItemClickListener(new RecyclerViewAdapter.OnItemClikListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(MainActivity.this,mAdapter.getItem(position), Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, mAdapter.getItem(position), Toast.LENGTH_SHORT).show();
+            }
+        });
+        mAdapter.setOnItemLongClickListener(new RecyclerViewAdapter.OnItemLongClickListener() {
+            @Override
+            public void onItemLongClick(View view, int position) {
+                Toast.makeText(MainActivity.this, "long click : " + mAdapter.getItem(position), Toast.LENGTH_SHORT).show();
             }
         });
         mRecyclerView.setAdapter(mAdapter);

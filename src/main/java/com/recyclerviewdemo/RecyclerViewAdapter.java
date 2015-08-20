@@ -19,6 +19,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private OnItemClikListener mOnItemClikListener;
 
+    private OnItemLongClickListener mOnItemLongClickListener;
+
     public RecyclerViewAdapter(List<String> list){
         this.list = list;
     }
@@ -27,7 +29,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
         if(viewType == TYPE_ITEM){
             View view  = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_layout, null);
-            return new ItemViewHolder(view,mOnItemClikListener);
+            return new ItemViewHolder(view,mOnItemClikListener, mOnItemLongClickListener);
         } else if (viewType == TYPE_FOOTER){
             View view  = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.footer_layout, null);
             return new FooterViewHolder(view,mOnItemClikListener);
@@ -70,8 +72,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return list.get(position);
     }
 
+    /**
+     * 设置item的点击事件
+     */
     public void setOnItemClickListener(OnItemClikListener listener){
         this.mOnItemClikListener = listener;
+    }
+
+    /**
+     * 设置item的长点击事件
+     */
+    public void setOnItemLongClickListener(OnItemLongClickListener listener){
+        this.mOnItemLongClickListener = listener;
     }
 
     /**
@@ -81,12 +93,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public TextView mTextView;
         private OnItemClikListener onItemClikListener;
+        private OnItemLongClickListener onItemLongClickListener;
 
-        public ItemViewHolder(View itemView, OnItemClikListener onItemClikListener) {
+        public ItemViewHolder(View itemView, OnItemClikListener onItemClikListener, OnItemLongClickListener onItemLongClickListener) {
             super(itemView);
             mTextView = (TextView) itemView.findViewById(R.id.textView);
             this.onItemClikListener = onItemClikListener;
+            this.onItemLongClickListener = onItemLongClickListener;
             itemView.setOnClickListener(this);
+            itemView.setOnLongClickListener(this);
         }
 
 
@@ -99,7 +114,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         @Override
         public boolean onLongClick(View view) {
-
+            if(onItemLongClickListener != null){
+                onItemLongClickListener.onItemLongClick(view, getAdapterPosition());
+            }
 
             return true;
         }
@@ -128,5 +145,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
      */
     public interface OnItemClikListener {
         void onItemClick(View view, int position);
+    }
+
+    /**
+     * item的长点击事件
+     */
+    public interface OnItemLongClickListener {
+        void onItemLongClick(View view, int position);
     }
 }
